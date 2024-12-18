@@ -1,0 +1,371 @@
+@charset "UTF-8";
+
+:root {
+  /* 色管理用の変数 */
+  --white-color: #fff;
+  --black-color: #333;
+  --accent-color: #F79214;
+}
+
+:root {
+  /* コンテンツ幅管理用の変数 */
+  --content-width-sm: 800px;
+  --content-width: 936px;
+  --content-width-lg: 1080px;
+}
+
+:root {
+  /* z-index管理用の変数 */
+  --z-index-back: -1;
+  --z-index-default: 1;
+  --z-index-page-top: 50;
+  --z-index-header: 100;
+  --z-index-menu: 150;
+  --z-index-modal: 200;
+}
+
+/* ---------- body ---------- */
+body {
+  color: var(--black-color);
+  font-family:  "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-size: 16px;
+}
+
+/* ---------- header ---------- */
+.header {
+  z-index: var(--z-index-header);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background-color: var(--white-color);
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 0 16px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .header {
+    position: fixed;
+  }
+}
+
+/* logo */
+.logo-image-pc {
+  display: block;
+  height: 20px;
+  width: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .logo-image-pc {
+      display: none;
+  }
+}
+
+.logo-image-sp {
+  display: none;
+  height: 16px;
+  width: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .logo-image-sp {
+      display: block;
+  }
+}
+
+/* nav */
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.nav-link > span {
+  color: var(--black-color);
+  font-weight: bold;
+  letter-spacing: 0.08em;
+}
+
+.nav-link > span:first-child {
+  font-family: "Lato", serif;
+  font-size: 12px;
+}
+
+.nav-link > span:last-child {
+  font-size: 10px;
+}
+
+.nav-button {
+  display: inline-block;
+  height: 40px;
+  border-radius: 20px;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 0px 16px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 1080px) {
+  .header-nav {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-index-modal);
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .nav-link > span:first-child {
+    font-family: "Lato", serif;
+    font-size: 16px;
+    color: var(--white-color);
+    letter-spacing: 5px;
+  }
+
+  .nav-link > span:last-child {
+    font-size: 12px;
+    color: var(--accent-color);
+    margin-top: 8px;
+  }
+
+  .nav-button {
+    width: 250px;
+    height: 60px;
+    font-size: 16px;
+    border-radius: 30px;
+  }
+}
+
+/* menu-toggle */
+.menu-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 1080px) {
+  .menu-toggle {
+    display: block;
+    width: 24px;
+    height: 17px;
+    position: relative;
+    z-index: var(--z-index-modal);
+  }
+
+  .menu-bar {
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    background-color: #A2A2A4;
+  }
+
+  .menu-bar:nth-child(1) {
+    top: 0;
+  }
+
+  .menu-bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu-bar:nth-child(3) {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  height: 739px;
+}
+
+.hero-bg-image {
+  position: absolute;
+  z-index: var(--z-index-back);
+}
+
+@media screen and (max-width: 767px) {
+  .hero-bg-image {
+      display: none;
+  }
+}
+
+.hero-bg-image-left {
+  top: -70px;
+  left: 0;
+}
+
+.hero-bg-image-right {
+  bottom: 70px;
+  right: 0;
+}
+
+.hero-bg-image-fill {
+  top: 84px;
+  left: -70px;
+}
+
+.hero-bg-image-main {
+  top: -70px;
+  right: 0;
+  width: 775px;
+}
+
+.hero-whole-image {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-whole-image {
+    display: block;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+}
+
+.hero-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 200px;
+}
+
+@media screen and (max-width: 1080px) {
+  .hero-container {
+    max-width: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 280px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-container {
+    max-width: none;
+    padding: 0 16px;
+  }
+}
+
+.hero-contents {
+  position: relative;
+  width: fit-content;
+}
+
+.hero-title {
+  font-family: "Lato", sans-serif;
+  font-size: 42px;
+  line-height: 1.4;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-title {
+      font-size: 22px;
+      line-height: 1.6;
+      position: relative;
+      width: fit-content;
+  }
+}
+
+.hero-badge-image {
+  position: absolute;
+  top: -105px;
+  right: -150px;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-badge-image {
+      height: 104px;
+      width: 104px;
+      top: -20px;
+      right: -85px;
+  }
+}
+
+.hero-button {
+  width: 100%;
+  height: 60px;
+  border-radius: 30px;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.hero-note {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+
+/* ---------- js ---------- */
+.js-menu-bar {
+  transition: top 0.24s, transform 0.24s, opacity 0.24s;
+}
+
+#js-menu-toggle.is-active .js-menu-bar:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+#js-menu-toggle.is-active .js-menu-bar:nth-child(2) {
+  transform: translate(50%, -50%);
+  opacity: 0;
+}
+
+#js-menu-toggle.is-active .js-menu-bar:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+#js-nav {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1080px) {
+  #js-nav {
+    opacity: 0;
+    transition: opacity 0.24s;
+  }
+}
+
+#js-nav.is-active {
+  opacity: 1;
+}
